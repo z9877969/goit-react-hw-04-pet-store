@@ -1,0 +1,21 @@
+.container {
+  display: flex;
+  align-items: center;
+  height: 40px;
+  background-color: rgb(70, 62, 62);
+}
+
+.container ul {
+  display: flex;
+  width: 200px;
+  justify-content: space-between;
+}
+
+.container a {
+  text-decoration: none;
+  color: aliceblue;
+}
+
+.container .activeStyle {
+  color: rgb(196, 44, 44);
+}
