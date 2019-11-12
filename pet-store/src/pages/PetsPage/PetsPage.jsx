@@ -3,18 +3,17 @@ import Pets from "../../components/Pets/Pets";
 import petsList from "../../json/pets.json";
 
 export default class PetsPage extends React.Component {
-  state = {};
-  setPropsFromLocationState = () => {
-    const { location } = this.props;
+  state = {
+    pets: null
   };
+
+  componentDidMount() {
+    this.setState({ pets: petsList });
+  }
+
   render() {
-    const { location } = this.props;
-    console.log(location);
-    return (
-      <div>
-        <h1>Available pets</h1>
-        <Pets pets={petsList} state={location.state} />
-      </div>
-    );
+    const { pets } = this.state;
+    console.log(this.props.history);
+    return <div>{pets && <Pets pets={pets} />}</div>;
   }
 }

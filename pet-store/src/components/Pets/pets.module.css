@@ -1,0 +1,12 @@
+.container {
+  width: 80vw;
+  margin: 0 auto;
+  margin-bottom: 20px;
+}
+
+.list {
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}

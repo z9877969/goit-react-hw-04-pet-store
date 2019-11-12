@@ -1,0 +1,43 @@
+.container {
+  margin-left: 12%;
+}
+
+.container button {
+  width: 140px;
+  height: 40px;
+  border: none;
+  color: white;
+  background-color: rgb(46, 40, 40);
+  font-size: 1.2em;
+  cursor: pointer;
+}
+
+.container button:hover {
+  background-color: rgba(46, 40, 40, 0.9);
+}
+
+.imgBlock {
+  /* width: 80%; */
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+.image {
+  width: 480px;
+  height: 390px;
+  contain: layout;
+}
+
+.description {
+  margin: 0;
+}
+
+.description p {
+  margin-top: 0;
+  font-size: 1.2em;
+}
+
+.description span {
+  font-weight: bolder;
+}

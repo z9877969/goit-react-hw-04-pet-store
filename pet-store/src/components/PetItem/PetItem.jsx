@@ -1,18 +1,18 @@
 import React from "react";
 import { Link, withRouter } from "react-router-dom";
+import style from "./petItem.module.css";
 
 const PetItem = props => {
-  const { pet, location } = props;
+  const { pet, match } = props;
 
-  console.log(props);
   return (
     <Link
       to={{
-        pathname: `/pets/${pet.id}`,
-        state: { pet, from: location.pathname }
+        pathname: `${match.path}/${pet.id}`,
+        state: { lastLink: window.innerHeight }
       }}
     >
-      <div>
+      <div className={style.container}>
         <img src={pet.image} alt={pet.breed} />
         <h2>{pet.name}</h2>
       </div>

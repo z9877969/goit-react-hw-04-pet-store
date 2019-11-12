@@ -1,19 +1,22 @@
 .container {
   display: flex;
   align-items: center;
-  height: 40px;
+  height: 4em;
   background-color: rgb(70, 62, 62);
 }
 
 .container ul {
   display: flex;
   width: 200px;
+  padding: 0;
+  margin-left: 6%;
   justify-content: space-between;
 }
 
 .container a {
   text-decoration: none;
   color: aliceblue;
+  font-size: 1.4em;
 }
 
 .container .activeStyle {

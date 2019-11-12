@@ -1,0 +1,19 @@
+.container {
+  padding: 20px;
+  border: 1px solid rgba(0, 0, 0, 0.8);
+}
+
+.container:not(:nth-last-child(n + 7)) {
+  margin-bottom: 20px;
+}
+
+.container img {
+  width: 23vw;
+  height: 19vw;
+  margin-bottom: 10px;
+}
+
+.container h2 {
+  margin: 0 auto;
+  text-align: center;
+}
