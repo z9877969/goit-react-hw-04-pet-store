@@ -1,5 +1,6 @@
-import React from "react";
-import style from "./petCard.module.css";
+import React from 'react';
+import PropTypes from 'prop-types';
+import style from './petCard.module.css';
 
 const PetCard = ({ pet, goBackToPets }) => (
   <div className={style.container}>
@@ -43,5 +44,18 @@ const PetCard = ({ pet, goBackToPets }) => (
     <p>{pet.description}</p>
   </div>
 );
+
+PetCard.propTypes = {
+  pet: PropTypes.shape({
+    name: PropTypes.string.isRequired,
+    image: PropTypes.string.isRequired,
+    age: PropTypes.number.isRequired,
+    gender: PropTypes.string.isRequired,
+    color: PropTypes.string.isRequired,
+    breed: PropTypes.string.isRequired,
+    description: PropTypes.string.isRequired,
+  }).isRequired,
+  goBackToPets: PropTypes.func.isRequired,
+};
 
 export default PetCard;

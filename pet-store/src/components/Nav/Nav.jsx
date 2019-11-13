@@ -1,6 +1,6 @@
-import React from "react";
-import { NavLink } from "react-router-dom";
-import style from "./nav.module.css";
+import React from 'react';
+import { NavLink } from 'react-router-dom';
+import style from './nav.module.css';
 
 const Nav = () => (
   <div className={style.container}>

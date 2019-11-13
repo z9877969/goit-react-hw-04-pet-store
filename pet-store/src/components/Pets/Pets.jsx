@@ -1,6 +1,7 @@
-import React from "react";
-import PetItem from "../../components/PetItem/PetItem";
-import style from "./pets.module.css";
+import React from 'react';
+import PropTypes from 'prop-types';
+import PetItem from '../PetItem/PetItem';
+import style from './pets.module.css';
 
 const Pets = ({ pets }) => (
   <div className={style.container}>
@@ -14,5 +15,13 @@ const Pets = ({ pets }) => (
     </ul>
   </div>
 );
+
+Pets.propTypes = {
+  pets: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.string.isRequired,
+    }).isRequired,
+  ).isRequired,
+};
 
 export default Pets;

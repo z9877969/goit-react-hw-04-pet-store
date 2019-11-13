@@ -1,6 +1,7 @@
-import React from "react";
-import { Link, withRouter } from "react-router-dom";
-import style from "./petItem.module.css";
+import React from 'react';
+import { Link, withRouter } from 'react-router-dom';
+import PropTypes from 'prop-types';
+import style from './petItem.module.css';
 
 const PetItem = props => {
   const { pet, match } = props;
@@ -9,7 +10,7 @@ const PetItem = props => {
     <Link
       to={{
         pathname: `${match.path}/${pet.id}`,
-        state: { lastLink: window.innerHeight }
+        state: true,
       }}
     >
       <div className={style.container}>
@@ -18,6 +19,18 @@ const PetItem = props => {
       </div>
     </Link>
   );
+};
+
+PetItem.propTypes = {
+  pet: PropTypes.shape({
+    name: PropTypes.string.isRequired,
+    image: PropTypes.string.isRequired,
+    id: PropTypes.string.isRequired,
+    breed: PropTypes.string.isRequired,
+  }).isRequired,
+  match: PropTypes.shape({
+    path: PropTypes.string.isRequired,
+  }).isRequired,
 };
 
 export default withRouter(PetItem);
