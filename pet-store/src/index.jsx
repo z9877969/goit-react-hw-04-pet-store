@@ -5,7 +5,7 @@ import './index.css';
 import App from './components/App/App';
 
 ReactDOM.render(
-  <HashRouter basename="/#">
+  <HashRouter basename="/">
     <Route component={App} />
   </HashRouter>,
   document.getElementById('root'),

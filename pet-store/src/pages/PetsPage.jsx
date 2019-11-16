@@ -1,8 +1,8 @@
-import React from 'react';
+import React, { Component } from 'react';
 import Pets from '../components/Pets/Pets';
 import petsList from '../json/pets.json';
 
-export default class PetsPage extends React.Component {
+export default class PetsPage extends Component {
   // eslint-disable-next-line react/state-in-constructor
   state = {
     pets: null,
@@ -10,6 +10,7 @@ export default class PetsPage extends React.Component {
 
   componentDidMount() {
     this.setState({ pets: petsList });
+    window.scrollTo({ top: 0 });
   }
 
   render() {

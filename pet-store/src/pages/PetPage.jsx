@@ -4,6 +4,7 @@ import PetCard from '../components/PetCard/PetCard';
 import petsList from '../json/pets.json';
 
 const getPathId = match => match.params.id;
+const getPetFromUrl = (petsList, id) => petsList.find(pet => pet.id === id);
 
 export default class PetPage extends Component {
   // eslint-disable-next-line react/state-in-constructor
@@ -13,18 +14,29 @@ export default class PetPage extends Component {
 
   componentDidMount() {
     const { match } = this.props;
-    const { history } = this.props;
     const id = getPathId(match);
-    const petFromUrl = petsList.find(pet => pet.id === id);
 
-    if (!petFromUrl) {
-      return history.push('/');
+    if (!getPetFromUrl(petsList, id)) {
+      return this.goBackToHome();
     }
 
-    this.setState({ pet: petFromUrl });
-
-    return window.scrollTo({ top: 0 });
+    this.setState({ pet: getPetFromUrl(petsList, id) });
+    window.scrollTo({ top: 0 });
   }
+
+  componentDidUpdate(prevProps, prevState) {
+    const { match, location } = this.props;
+    const id = getPathId(match);
+    if (location !== prevProps.location && !getPetFromUrl(petsList, id)) {
+      return this.goBackToHome();
+    }
+  }
+
+  goBackToHome = () => {
+    const { history } = this.props;
+    history.push('/');
+    window.scrollTo({ top: 0 });
+  };
 
   handleGoBackToPets = () => {
     const { history, location } = this.props;
