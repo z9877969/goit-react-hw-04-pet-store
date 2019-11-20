@@ -43,7 +43,11 @@ export default class PetPage extends Component {
     if (!location.state) {
       return history.push('/pets');
     }
-    return history.goBack();
+
+    history.push({
+      pathname: location.state.from.pathname,
+      state: { height: location.state.height },
+    });
   };
 
   render() {
@@ -68,6 +72,16 @@ PetPage.propTypes = {
     goBack: PropTypes.func.isRequired,
   }).isRequired,
   location: PropTypes.shape({
-    state: PropTypes.bool,
+    state: PropTypes.shape({
+      height: PropTypes.number.isRequired,
+    }),
   }).isRequired,
+};
+
+PetPage.defaultProps = {
+  location: {
+    state: {
+      height: 0,
+    },
+  },
 };

@@ -4,13 +4,13 @@ import PropTypes from 'prop-types';
 import style from './petItem.module.css';
 
 const PetItem = props => {
-  const { pet, match } = props;
+  const { pet, match, height } = props;
 
   return (
     <Link
       to={{
         pathname: `${match.path}/${pet.id}`,
-        state: true,
+        state: { height: height, from: props.location },
       }}
     >
       <div className={style.container}>

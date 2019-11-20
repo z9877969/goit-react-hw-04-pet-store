@@ -3,13 +3,13 @@ import PropTypes from 'prop-types';
 import PetItem from '../PetItem/PetItem';
 import style from './pets.module.css';
 
-const Pets = ({ pets }) => (
+const Pets = ({ pets, height }) => (
   <div className={style.container}>
     <h1>Available pets</h1>
     <ul className={style.list}>
       {pets.map(pet => (
         <li key={pet.id}>
-          <PetItem pet={pet} />
+          <PetItem pet={pet} height={height} />
         </li>
       ))}
     </ul>
